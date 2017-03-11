@@ -49,4 +49,14 @@ separate s (x:xs) = pretty x ++ s ++ (separate s xs)
 -- Data type for substitutions (correct?)
 data Subst = Subst [(Term,Term)]
 
+instance Pretty Subst
+    where 
+        pretty (Subst (x:xs)) = "o = {" ++ separateTerm (Subst (x:xs)) ++ "}"
+        
+separateTerm (Subst [])  = ""
+separateTerm (Subst [x]) = prettyTerm x
+separateTerm (Subst (x:xs)) = prettyTerm x ++ ", " ++ (separateTerm (Subst xs))
+
+prettyTerm (x,y) = pretty x ++ " -> " ++ pretty y
+
        

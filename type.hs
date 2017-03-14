@@ -115,10 +115,11 @@ apply_list ((t1,t2):ts) t = apply_list ts (replace t1 t2 t)
 
 -- Disagreement Set (Unstimmigkeitsmenge)
 ds :: Term -> Term -> Maybe (Term,Term)
-ds t1           t2            = if t1 == t2      then nothing           else ds t1 t2 -- ? --
-ds (Var v)      t2            = if (Var v) /= t2 then Just ((Var v),t2) else nothing
-ds t1           (Var v)       = if t1 /= (Var v) then Just (t1,(Var v)) else nothing
-ds (Comb s1 ts) (Comb s2 tss) = if s1 /= s2 || (length ts) /= (length tss) then Just ((Comb s1 ts),(Comb s2 tss)) else if s1 == s2 && (length ts) == (length tss) then 
+ds = undefined
+--ds t1           t2            = if t1 == t2      then nothing           else ds t1 t2 -- ? --
+--ds (Var v)      t2            = if (Var v) /= t2 then Just ((Var v),t2) else nothing
+--ds t1           (Var v)       = if t1 /= (Var v) then Just (t1,(Var v)) else nothing
+--ds (Comb s1 ts) (Comb s2 tss) = if s1 /= s2 || (length ts) /= (length tss) then Just ((Comb s1 ts),(Comb s2 tss)) else if s1 == s2 && (length ts) == (length tss) then 
 
 
 -- Unifikation
